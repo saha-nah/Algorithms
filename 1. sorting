@@ -1,0 +1,66 @@
+#Merge sort
+def mergeSort(array):
+    if len(array) > 1:
+        r = len(array)//2
+        L = array[:r]
+        M = array[r:]
+        mergeSort(L)
+        mergeSort(M)
+        i = j = k = 0
+        while i < len(L) and j < len(M):
+            if L[i] < M[j]:
+                array[k] = L[i]
+                i += 1
+            else:
+                array[k] = M[j]
+                j += 1
+            k += 1
+        while i < len(L):
+          array[k] = L[i]
+          i += 1
+          k += 1
+
+        while j < len(M):
+            array[k] = M[j]
+            j += 1
+            k += 1
+def printList(array):
+    for i in range(len(array)):
+        print(array[i], end=" ")
+    print()
+if __name__ == '__main__':
+    print('Sahana M 21BAD049')
+    array = [23,45,76,89,98,56]
+    print('Array :',array)
+    mergeSort(array)
+    
+    print("Sorted array is: ")
+    printList(array)
+    
+    
+    
+    #Quick sort
+def partition(arr,low,high):
+   i = ( low-1 )
+   pivot = arr[high] 
+   for j in range(low , high):
+      if arr[j] <= pivot:
+         
+         i = i+1
+         arr[i],arr[j] = arr[j],arr[i]
+   arr[i+1],arr[high] = arr[high],arr[i+1]
+   return ( i+1 )
+def quickSort(arr,low,high):
+   if low < high:
+      pi = partition(arr,low,high)
+      quickSort(arr, low, pi-1)
+      quickSort(arr, pi+1, high)
+      
+print('Sahana M 21BAD049')
+arr = [6,56,889,675,54,46,858]
+print('Array:',arr)
+n = len(arr)
+quickSort(arr,0,n-1)
+print ("Sorted array is:")
+for i in range(n):
+   print (arr[i],end=" ")
