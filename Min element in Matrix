@@ -1,0 +1,4 @@
+import numpy as np
+a = np.array([[11,2],[3,4],[4,14]])
+print('The min element in the matrix is:')
+print(a.min())
